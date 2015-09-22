@@ -1,6 +1,6 @@
-# rekam-jejak-media-api-endpoint
+# Rekam Jejak Media EndPoint
 
-[![Code Climate](https://codeclimate.com/github/pemiluAPI/rekam-jejak-media-api-endpoint.png)](https://codeclimate.com/github/pemiluAPI/rekam-jejak-media-api-endpoint)
+[![Code Climate](https://codeclimate.com/github/pemiluAPI/rekam-jejak-media-endpoint.png)](https://codeclimate.com/github/pemiluAPI/rekam-jejak-media-endpoint)
 
 ## How to setup
 
@@ -11,4 +11,4 @@
 
 
 ## Documentation API
-See [Documentation API](http://docs.rekamjejakmediaapi.apiary.io/) for information on defining and using rekam-jejak-media-api-endpoint
+See [Documentation API](http://docs.rekamjejakmedia.apiary.io/) for information on defining and using rekam-jejak-media-endpoint

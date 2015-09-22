@@ -14,6 +14,9 @@ group :development do
 	gem 'spring'
 	gem 'rubycritic', require: false
 	gem 'brakeman', require: false
+	gem 'capistrano'
+	gem 'capistrano-rails'
+	gem 'capistrano-rbenv', github: 'capistrano/rbenv'
 end
 
 # Use grape micro-framework for creating REST-like API
@@ -26,7 +29,7 @@ gem 'grape'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano-rails', group: :development
+# gem 'capistrano-rails', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

@@ -1,4 +1,4 @@
-server "54.255.145.43", roles: [:app, :web, :db]
+server "54.255.145.91", roles: [:app, :web, :db]
 
 set :ssh_options, {
   user: "ubuntu",

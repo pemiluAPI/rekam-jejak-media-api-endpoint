@@ -34,3 +34,4 @@ gem 'grape'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'google-search', '~> 1.0.3'

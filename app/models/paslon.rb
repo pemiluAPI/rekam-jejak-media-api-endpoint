@@ -22,7 +22,7 @@ class Paslon < ActiveRecord::Base
 		}
   end
 
-  def self.gsearch(limit = 10)
+  def self.gsearch(limit = 20)
     all.each do |paslon|
       paslon.record(Google::Search::Web.new(query: paslon.qwords), {limit: limit})
       puts "[Record Web] data rekam jejak for paslon id #{paslon.id}"

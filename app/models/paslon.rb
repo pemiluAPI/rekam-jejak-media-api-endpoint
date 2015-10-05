@@ -22,6 +22,15 @@ class Paslon < ActiveRecord::Base
 		}
   end
 
+  def self.gsearch(limit = 10)
+    all.each do |paslon|
+      paslon.record(Google::Search::Web.new(query: paslon.qwords), {limit: limit})
+      puts "[Record Web] data rekam jejak for paslon id #{paslon.id}"
+      paslon.record(Google::Search::Video.new(query: paslon.qwords), {limit: limit})
+      puts "[Record Video] data rekam jejak for paslon id #{paslon.id}"
+    end
+  end
+
   def rekam_jejak_media(data = {})   
     rekam_jejaks          = self.rekam_jejaks.sumber(data[:sumber])
     paginate_rekam_jejaks = rekam_jejaks.limit(self.class.setlimit(data[:limit])).offset(data[:offset])
@@ -39,6 +48,14 @@ class Paslon < ActiveRecord::Base
       count: paginate_rekam_jejaks.count,
       total: rekam_jejaks.count
     }
+  end
+
+  def record(search, options = {})
+    search.each_with_index do |result, index|
+      break if index > (options[:limit] - 1)
+      self.rekam_jejaks.build({sumber_media_id: SumberMedia.get(result.visible_uri).id, judul: result.title, link: result.uri, content_media: result.content})
+      self.save
+    end
   end
 
 protected

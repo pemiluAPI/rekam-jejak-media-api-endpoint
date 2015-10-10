@@ -30,7 +30,7 @@ class Paslon < ActiveRecord::Base
 
   def record(search, options = {})
     search.each_with_index do |result, index|
-      break if index > (options[:limit] - 1)
+      break if (index > (options[:limit] - 1)) && (self.rekam_jejaks.size > (options[:limit] - 1))
       self.rekam_jejaks.build({sumber_media_id: gmedia(result), judul: sanitize(result.title, tags: []), link: result.uri, content_media: sanitize(result.content, tags: [])})
       self.save
     end

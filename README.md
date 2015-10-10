@@ -9,12 +9,12 @@
 3. `$ bundle exec rails server`
 
 ## Data
-[Rekam Jejak Media](https://github.com/pemiluAPI/pemilu-data/tree/master/rekam-jejak-media)_
-Run [Google Search](https://github.com/tj/google-search) `$ bundle exec rake run:gsearch`_
+1. [Rekam Jejak Media](https://github.com/pemiluAPI/pemilu-data/tree/master/rekam-jejak-media)
+2. [Google Search](https://github.com/tj/google-search), Run `$ bundle exec rake run:gsearch`
 
 ## Documentation API
 See [Documentation API](http://docs.rekamjejakmedia.apiary.io/) for information on defining and using rekam-jejak-media-endpoint
 
 ## Resource
-[infopilkada.kpu.go.id](http://infopilkada.kpu.go.id/)_
-[Google Search](https://github.com/tj/google-search)_
+1. [infopilkada.kpu.go.id](http://infopilkada.kpu.go.id/)
+2. [Google Search](https://github.com/tj/google-search)

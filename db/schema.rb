@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150917233028) do
   create_table "paslons", force: true do |t|
     t.string   "nama_calon"
     t.string   "nama_wakil_calon"
-    t.string   "qwords"
+    t.text     "qwords"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20150917233028) do
   create_table "rekam_jejaks", force: true do |t|
     t.integer  "paslon_id"
     t.integer  "sumber_media_id"
-    t.string   "judul"
     t.string   "link"
+    t.text     "judul"
     t.text     "content_media"
     t.datetime "created_at"
     t.datetime "updated_at"

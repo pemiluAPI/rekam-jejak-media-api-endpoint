@@ -3,7 +3,7 @@ class CreatePaslons < ActiveRecord::Migration
     create_table :paslons do |t|
     	t.string :nama_calon
     	t.string :nama_wakil_calon
-    	t.string :qwords
+    	t.text :qwords
 
       t.timestamps
     end

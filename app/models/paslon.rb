@@ -31,7 +31,7 @@ class Paslon < ActiveRecord::Base
   def record(search, options = {})
     search.each_with_index do |result, index|
       break if index > (options[:limit] - 1)
-      self.rekam_jejaks.build({sumber_media_id: SumberMedia.get(result.visible_uri).id, judul: sanitize(result.title, tags: []), link: result.uri, content_media: sanitize(result.content, tags: [])})
+      self.rekam_jejaks.build({sumber_media_id: gmedia(result), judul: sanitize(result.title, tags: []), link: result.uri, content_media: sanitize(result.content, tags: [])})
       self.save
     end
   end
@@ -48,6 +48,10 @@ class Paslon < ActiveRecord::Base
 protected
   def self.setlimit(limit)
     limit = (limit.to_i == 0 || limit.empty?) ? 1000 : limit
+  end
+
+  def gmedia(obj)
+    SumberMedia.get(URI.parse(obj.visible_uri || obj.uri).host).id
   end
 
 end

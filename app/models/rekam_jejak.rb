@@ -3,7 +3,8 @@ class RekamJejak < ActiveRecord::Base
   belongs_to :sumber_media
 
   validates :judul, :link,
-  					presence: true
+  					presence: true,
+            uniqueness: true
 
   scope :by_id, lambda{ |id| where("id = ?", id) unless id.nil? }
   scope :by_paslon_id, lambda{ |paslon_id| where("paslon_id = ?", paslon_id) unless paslon_id.nil? }

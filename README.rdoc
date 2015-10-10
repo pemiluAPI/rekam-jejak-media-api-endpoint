@@ -10,7 +10,7 @@
 
 ## Data
 1. [Rekam Jejak Media](https://github.com/pemiluAPI/pemilu-data/tree/master/rekam-jejak-media)
-2. [Google Search](https://github.com/tj/google-search), Run `$ bundle exec rake run:gsearch`
+2. [Google Search](https://github.com/tj/google-search), run `$ bundle exec rake run:gsearch`
 
 ## Documentation API
 See [Documentation API](http://docs.rekamjejakmedia.apiary.io/) for information on defining and using rekam-jejak-media-endpoint

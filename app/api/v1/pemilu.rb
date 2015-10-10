@@ -4,30 +4,35 @@ module Pemilu
     prefix 'api'
     format :json
 
-    resource :paslon do
-
-      desc "Return all paslon with rekam jejak media"
+    resource :sumber_media do
+      desc "Return list sumber_media"
       get do
-        results = Paslon.rekam_jejak_medias(params)
-        
+        results = SumberMedia.apiall(params)
         {
           results: results
         }
       end
+    end
 
-      desc "Return a paslon with rekam jejak media"
-      params do
-        requires :id, type: String, desc: "Paslon ID."
-      end
-      route_param :id do
-        get do
-          results = Paslon.paslon_id(params[:id]).first.rekam_jejak_media(params)
-
-          {
-            results: results
-          }
-        end
+    resource :paslon do
+      desc "Return list paslon"
+      get do
+        results = Paslon.apiall(params)
+        {
+          results: results
+        }
       end
     end
+
+    resource :rekam_jejak do
+      desc "Return list rekam_jejak"
+      get do
+        results = RekamJejak.apiall(params)
+        {
+          results: results
+        }
+      end
+    end
+
   end
 end

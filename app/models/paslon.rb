@@ -1,4 +1,6 @@
 class Paslon < ActiveRecord::Base
+  include ActionView::Helpers::SanitizeHelper
+
   has_many :rekam_jejaks
 
   validates :nama_calon, :nama_wakil_calon,
@@ -17,10 +19,10 @@ class Paslon < ActiveRecord::Base
     }
   end
 
-  def self.gsearch(limit = 20)
+  def self.gsearch(limit = 10)
     all.each do |paslon|
-      paslon.record(Google::Search::Web.new(query: paslon.qwords), {limit: limit})
-      puts "[Record Web] data rekam jejak for paslon id #{paslon.id}"
+      paslon.record(Google::Search::News.new(query: paslon.qwords), {limit: limit})
+      puts "[Record News] data rekam jejak for paslon id #{paslon.id}"
       paslon.record(Google::Search::Video.new(query: paslon.qwords), {limit: limit})
       puts "[Record Video] data rekam jejak for paslon id #{paslon.id}"
     end
@@ -29,7 +31,7 @@ class Paslon < ActiveRecord::Base
   def record(search, options = {})
     search.each_with_index do |result, index|
       break if index > (options[:limit] - 1)
-      self.rekam_jejaks.build({sumber_media_id: SumberMedia.get(result.visible_uri).id, judul: result.title, link: result.uri, content_media: result.content})
+      self.rekam_jejaks.build({sumber_media_id: SumberMedia.get(result.visible_uri).id, judul: sanitize(result.title, tags: []), link: result.uri, content_media: sanitize(result.content, tags: [])})
       self.save
     end
   end

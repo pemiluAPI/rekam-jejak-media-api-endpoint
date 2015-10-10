@@ -21,9 +21,9 @@ class Paslon < ActiveRecord::Base
 
   def self.gsearch(limit = 10)
     all.each do |paslon|
-      paslon.record(Google::Search::News.new(query: paslon.qwords), {limit: limit})
+      paslon.record(Google::Search::News.new(query: paslon.qwords, gl: "id"), {limit: limit})
       puts "[Record News] data rekam jejak for paslon id #{paslon.id}"
-      paslon.record(Google::Search::Video.new(query: paslon.qwords), {limit: limit})
+      paslon.record(Google::Search::Video.new(query: paslon.qwords, gl: "id"), {limit: limit})
       puts "[Record Video] data rekam jejak for paslon id #{paslon.id}"
     end
   end

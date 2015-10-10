@@ -24,8 +24,8 @@ class RekamJejak < ActiveRecord::Base
   def construct
     return {
       id: id,
-      paslon: (handle(paslon)),
-      sumber_media: (handle(sumber_media)),
+      paslon: handle(paslon),
+      sumber_media: handle(sumber_media),
       judul: judul,
       link: link,
       content_media: content_media
